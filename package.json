@@ -12,10 +12,6 @@
     "typegen": "sanity schema extract --path ./sanity/extract.json && sanity typegen generate"
   },
   "packageManager": "npm@11.3.0",
-  "overrides": {
-    "react": "$react",
-    "react-dom": "$react-dom"
-  },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.0",
     "@sanity/client": "^6.29.1",
@@ -24,12 +20,15 @@
     "@tailwindcss/typography": "^0.5.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "easymde": "^2.20.0",
     "lucide-react": "^0.503.0",
-    "next": "15.3.1",
+    "markdown-it": "^14.1.0",
+    "marked": "^15.0.11",
+    "next": "^15.4.0-canary.11",
     "next-auth": "^5.0.0-beta.26",
-    "next-sanity": "^9.8.58-canary.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next-sanity": "^9.10.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "sanity": "^3.86.1",
     "sanity-plugin-markdown": "^5.1.0",
     "server-only": "^0.0.1",
@@ -41,6 +40,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
