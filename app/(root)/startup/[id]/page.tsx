@@ -1,27 +1,27 @@
 import { client } from '@/sanity/lib/client';
 import { STARTUPS_BY_ID_QUERY } from '@/sanity/lib/queries';
 import { notFound } from 'next/navigation';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { formatDate } from '@/lib/utils';
 import Link from 'next/link';
 import Image from 'next/image';
 import { marked } from 'marked';
+import { Skeleton } from '@/components/ui/skeleton';
+import View from '@/components/View';
 
 
 export const experimental_ppr = true;
 
-const page = async ({ params }: { params: { id: string } }) => {
-  const id = params.id;
+const page = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const id = (await params).id;
 
   const post = await client.fetch(STARTUPS_BY_ID_QUERY, { id });
-
-  console.log("Pitch Content:", post?.pitch);
 
   if (!post) {
     return notFound();
   }
 
-  const parsedContent = await marked.parse(post?.pitch || 'No pitch details available.');
+  const parsedContent = await marked.parse(post?.pitch || "");
 
   return (
     <>
@@ -60,13 +60,17 @@ const page = async ({ params }: { params: { id: string } }) => {
           {parsedContent ? (
             <article 
               className='prose max-w-4xl font-work-sans break-all'
-              dangerouslySetInnerHTML={{__html: parsedContent}}/>
+              dangerouslySetInnerHTML={{ __html: parsedContent }}/>
           ): (
             <p className='no-result'>No pitch details available.</p>
           )}
         </div>
 
         <hr className='divider'/>
+
+        <Suspense fallback={<Skeleton className='view_skeleton'/>}>
+          <View id = {id} />
+        </Suspense>
       </section>
     </>
   )
