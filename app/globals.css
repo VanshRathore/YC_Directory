@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
-@import "tailwindcss";
-
-@config "../tailwind.config.ts";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -48,15 +48,15 @@
   }
 
   .pink_container {
-    @apply w-full bg-primary min-h-[530px] flex justify-center items-center flex-col py-10 px-6;
+    @apply w-full bg-primary min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;
   }
 
   .tag {
-    @apply bg-secondary px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative ;
+    @apply bg-secondary px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative tag-tri;
   }
 
   .heading {
-    @apply uppercase  bg-black px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+    @apply uppercase bg-black px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
   }
 
   .sub-heading {
@@ -107,15 +107,15 @@
 
   /* navbar */
   .avatar {
-    @apply p-0 focus-visible:ring-0 bg-none rounded-full drop-shadow-md ;
+    @apply p-0 focus-visible:ring-0 bg-none rounded-full drop-shadow-md !important;
   }
 
   .dropdown-menu {
-    @apply w-56 border-[5px] border-black bg-white p-5 rounded-2xl ;
+    @apply w-56 border-[5px] border-black bg-white p-5 rounded-2xl !important;
   }
 
   .login {
-    @apply border-[5px] py-4 border-black bg-white text-black relative shadow-100 font-work-sans font-medium hover:shadow-none transition-all duration-500 ;
+    @apply border-[5px] py-4 border-black bg-white text-black relative shadow-100 font-work-sans font-medium hover:shadow-none transition-all duration-500 !important;
   }
 
   /* searchform */
@@ -128,7 +128,7 @@
   }
 
   .search-btn {
-    @apply size-[50px] rounded-full bg-black flex justify-center items-center ;
+    @apply size-[50px] rounded-full bg-black flex justify-center items-center !important;
   }
 
   /* startupcard */
@@ -149,7 +149,7 @@
   }
 
   .startup-card_btn {
-    @apply rounded-full bg-black-200 font-medium text-[16px] text-white px-5 py-3 ;
+    @apply rounded-full bg-black-200 font-medium text-[16px] text-white px-5 py-3 !important;
   }
 
   .startup-card_skeleton {
@@ -166,11 +166,11 @@
   }
 
   .startup-form_input {
-    @apply border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-3 placeholder:text-black-300 ;
+    @apply border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-3 placeholder:text-black-300 !important;
   }
 
   .startup-form_textarea {
-    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-[20px] mt-3 placeholder:text-black-300 ;
+    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-[20px] mt-3 placeholder:text-black-300 !important;
   }
 
   .startup-form_error {
@@ -178,11 +178,11 @@
   }
 
   .startup-form_editor {
-    @apply mt-3 border-[3px] border-black text-[18px] text-black font-semibold placeholder:text-black-300 ;
+    @apply mt-3 border-[3px] border-black text-[18px] text-black font-semibold placeholder:text-black-300 !important;
   }
 
   .startup-form_btn {
-    @apply bg-primary border-[4px] border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] ;
+    @apply bg-primary border-[4px] border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] !important;
   }
 
   /* view */
@@ -198,12 +198,24 @@
     @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full;
   }
 
-  /* .tag-tri {
+  .pattern {
+    background-image: linear-gradient(
+            to right,
+            transparent 49.5%,
+            rgba(251, 232, 67, 0.2) 49.5%,
+            rgba(251, 232, 67, 0.6) 50.5%,
+            transparent 50.5%
+    );
+    background-size: 5% 100%;
+    background-position: center;
+    background-repeat: repeat-x;
+  }
+
+  .tag-tri {
     @apply before:content-[''] before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-t-black before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black after:border-l-[10px] after:border-l-transparent;
-  } */
+  }
 }
 
 .w-md-editor-toolbar {
   padding: 10px !important;
 }
-
